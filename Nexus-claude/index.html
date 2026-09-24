@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/logo.png" rel="icon">
+    <title>Nexus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <main class="auth-page" id="screen-auth">
+        <section class="visual-panel">
+
+            <div class="brand">
+                <h1>Nexus</h1>
+                <p>Your Journey Begins Here.</p>
+            </div>
+            
+            <div class="visual-content">
+                <span>EXPLORE</span>
+                <span>GROW</span>
+                <span>ACHIEVE</span>
+            </div>
+
+        </section>
+
+        <section class="auth-panel">
+            <div class="auth-container">
+
+                <header class="auth-header">
+
+                    <h2 id="auth-title">Welcome Back</h2>
+                    
+                    <p id="auth-description">
+                        Enter the Nexus and continue your journey.
+                    </p>
+                </header>
+
+                <div class="auth-tabs">
+
+                    <button class="tab active" id="login-tab" type="button">Login</button>
+                    <button class="tab" id="signup-tab" type="button">Sign Up</button>
+
+                </div>
+
+                <p id="auth-error" class="auth-error hidden"></p>
+
+                <form id="login-form" class="auth-form">
+
+                    <div class="form-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" placeholder="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="form-options">
+
+                        <label class="remember">
+                            <input type="checkbox" id="remember-me">
+                            <span>Remember Me</span>
+                        </label>
+
+                        <button type="button" class="forgot-password">Forgot Password?</button>
+
+                    </div>
+
+                    <button type="submit" class="primary-button" id="submit-login">ENTER NEXUS</button>
+                </form>
+
+                <form id="signup-form" class="auth-form hidden">
+
+                    <div class="form-group">
+                        <label for="signup-username">Username</label>
+                        <input type="text" id="signup-username" placeholder="Choose a username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" placeholder="Create a password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-confirm-password">Confirm Password</label>
+                        <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required>
+                    </div>
+
+                    <button type="submit" class="primary-button">JOIN NEXUS</button>
+
+                </form>
+
+                <div class="auth-footer">
+
+                    <span id="footer-text">Don't have an account?</span>
+                    <button id="switch-auth" type="button">Create One</button>
+
+                </div>
+
+            </div>
+
+        </section>
+        
+    </main>
+    <div class="app-shell hidden" id="screen-dashboard">
+
+        <nav class="sidebar">
+            <div class="sidebar-brand">
+                <img src="assets/logo.png" alt="Nexus Logo" class="sidebar-logo">
+                <h1>Nexus</h1>
+            </div>
+
+            <div class="sidebar-nav">
+                <button type="button" class="nav-item active" data-view="dashboard">
+                    <span>Dashboard</span>
+                </button>
+                <button type="button" class="nav-item" data-view="quests">
+                    <span>Quests</span>
+                </button>
+                <button type="button" class="nav-item" data-view="profile">
+                    <span>Profile</span>
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-status-label">LEVEL <span id="sidebar-level">1</span></div>
+                <div class="xp-bar sidebar-xp-bar">
+                    <div id="sidebar-xp-progress" class="xp-progress"></div>
+                </div>
+                <div class="sidebar-xp-label"><span id="sidebar-xp-label">0 / 100 XP</span></div>
+                <button type="button" class="sign-out-button" id="sign-out-button">Sign Out</button>
+            </div>
+        </nav>
+
+        <section id="app-content">
+
+            <section id="dashboard-view" class="app-view active">
+
+                <header class="dashboard-header">
+                    <div>
+                        <p class="section-label">NEXUS COMMAND</p>
+                        <h1>Welcome back, <span id="player-name">Nexus Player</span></h1>
+                        <p class="dashboard-subtitle">
+                            Your journey continues.
+                        </p>
+                    </div>
+                </header>
+
+
+                <section class="player-status">
+
+                    <div class="status-card">
+                        <span class="status-label">LEVEL</span>
+                        <strong id="player-level">1</strong>
+                    </div>
+
+                    <div class="status-card">
+                        <span class="status-label">XP</span>
+                        <strong>
+                            <span id="player-xp">0</span>
+                            <span class="xp-required">
+                                / <span id="xp-required">100</span>
+                            </span>
+                        </strong>
+                    </div>
+
+                    <div class="status-card">
+                        <span class="status-label">STREAK</span>
+                        <strong id="player-streak">0</strong>
+                        <span class="status-unit">DAYS</span>
+                    </div>
+
+                </section>
+
+
+                <section class="xp-section">
+
+                    <div class="xp-header">
+                        <span>EXPERIENCE</span>
+
+                        <span>
+                            <span id="xp-current">0</span>
+                            /
+                            <span id="xp-total">100</span>
+                            XP
+                        </span>
+                    </div>
+
+                    <div class="xp-bar">
+                        <div id="xp-progress" class="xp-progress"></div>
+                    </div>
+
+                </section>
+
+
+                <section class="quests-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <p class="section-label">TODAY</p>
+                            <h2>Daily Quests</h2>
+                        </div>
+
+                        <button id="add-quest-button" class="secondary-button">
+                            + ADD QUEST
+                        </button>
+                    </div>
+
+
+                    <div id="quest-list" class="quest-list"></div>
+
+                </section>
+
+            </section>
+
+            <section id="quests-view" class="app-view">
+
+                <header class="dashboard-header">
+                    <div>
+                        <p class="section-label">FULL BOARD</p>
+                        <h1>Quests</h1>
+                        <p class="dashboard-subtitle">Manage your active board and see what you've claimed.</p>
+                    </div>
+                </header>
+
+                <div class="quest-tabs">
+                    <button type="button" class="quest-tab active" data-filter="active">Active</button>
+                    <button type="button" class="quest-tab" data-filter="completed">Completed</button>
+                    <button type="button" class="quest-tab" data-filter="claimed">Claimed</button>
+                </div>
+
+                <div class="section-heading">
+                    <div></div>
+                    <button id="add-quest-button-2" class="secondary-button">
+                        + ADD QUEST
+                    </button>
+                </div>
+
+                <div id="quests-full-list" class="quest-list"></div>
+
+            </section>
+
+            <section id="profile-view" class="app-view">
+
+                <header class="dashboard-header">
+                    <div>
+                        <p class="section-label">PLAYER FILE</p>
+                        <h1>Profile</h1>
+                        <p class="dashboard-subtitle">Your journey so far.</p>
+                    </div>
+                </header>
+
+                <section class="player-status">
+                    <div class="status-card">
+                        <span class="status-label">LEVEL</span>
+                        <strong id="profile-level">1</strong>
+                    </div>
+                    <div class="status-card">
+                        <span class="status-label">TOTAL XP</span>
+                        <strong id="profile-total-xp">0</strong>
+                    </div>
+                    <div class="status-card">
+                        <span class="status-label">STREAK</span>
+                        <strong id="profile-streak">0</strong>
+                        <span class="status-unit">DAYS</span>
+                    </div>
+                </section>
+
+                <section class="xp-section">
+                    <div class="xp-header">
+                        <span>PROGRESS TO NEXT LEVEL</span>
+                        <span id="profile-xp-label">0 / 100 XP</span>
+                    </div>
+                    <div class="xp-bar">
+                        <div id="profile-xp-progress" class="xp-progress"></div>
+                    </div>
+                </section>
+
+                <section class="player-status">
+                    <div class="status-card">
+                        <span class="status-label">USERNAME</span>
+                        <strong id="profile-username">-</strong>
+                    </div>
+                    <div class="status-card">
+                        <span class="status-label">EMAIL</span>
+                        <strong id="profile-email">-</strong>
+                    </div>
+                    <div class="status-card">
+                        <span class="status-label">MEMBER SINCE</span>
+                        <strong id="profile-since">-</strong>
+                    </div>
+                </section>
+
+            </section>
+
+        </section>
+
+    </div>
+
+    <div class="modal-overlay hidden" id="add-quest-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Choose a Quest</h2>
+                <button type="button" class="modal-close" id="close-add-quest-modal" aria-label="Close">&times;</button>
+            </div>
+            <p class="modal-sub">Quests come from a preset list, so XP is already balanced for you.</p>
+            <div class="catalog-categories" id="catalog-categories"></div>
+            <div class="catalog-body" id="catalog-body"></div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <div class="popover-overlay hidden" id="recurrence-popover">
+        <div class="popover">
+            <p class="popover-label">HOW OFTEN SHOULD THIS QUEST REFRESH?</p>
+            <h3 id="recurrence-quest-name">Quest name</h3>
+            <div class="recurrence-options">
+                <button type="button" class="recurrence-option" data-recurrence="forever">
+                    <span class="recurrence-option-title">Forever</span>
+                    <span class="recurrence-option-sub">One-time, no refresh</span>
+                </button>
+                <button type="button" class="recurrence-option" data-recurrence="daily">
+                    <span class="recurrence-option-title">Daily</span>
+                    <span class="recurrence-option-sub">Refreshes every day</span>
+                </button>
+                <button type="button" class="recurrence-option" data-recurrence="weekly">
+                    <span class="recurrence-option-title">Weekly</span>
+                    <span class="recurrence-option-sub">Refreshes every week</span>
+                </button>
+                <button type="button" class="recurrence-option" data-recurrence="monthly">
+                    <span class="recurrence-option-title">Monthly</span>
+                    <span class="recurrence-option-sub">Refreshes every month</span>
+                </button>
+            </div>
+            <button type="button" class="popover-cancel" id="cancel-recurrence">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
